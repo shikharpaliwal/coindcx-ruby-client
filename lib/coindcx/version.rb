@@ -1,0 +1,3 @@
+module Coindcx
+  VERSION = "0.1.0"
+end
