@@ -20,7 +20,6 @@ GEM
       domain_name (~> 0.5)
     http-form_data (2.1.1)
     http_parser.rb (0.6.0)
-    openssl (2.1.2)
     public_suffix (3.0.3)
     rake (10.5.0)
     rspec (3.8.0)
@@ -47,7 +46,6 @@ DEPENDENCIES
   bundler (~> 2.0)
   coindcx!
   http (~> 3.0)
-  openssl (~> 2.1, >= 2.1.2)
   rake (~> 10.0)
   rspec (~> 3.0)
 

@@ -1,10 +1,8 @@
 module Coindcx
   module Rest
     class Config
+      BASE_URL = 'https://api.coindcx.com/exchange'.freeze
 
-      # BASE_URL = 'http://localhost:3000/exchange'.freeze
-      # BASE_URL = 'https://api.coindcx.com/exchange'.freeze
-      BASE_URL = 'https://staging-api.coindcx.com/exchange'.freeze
       ENDPOINTS = {
         "ticker" => {
           "endpoint" => "/v1/ticker",

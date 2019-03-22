@@ -4,10 +4,9 @@ module Coindcx
 
       def http_request method, method_data, payload
         headers, params, endpoint = request_params(method, method_data, payload)
-        puts "#{headers} --- #{params} -- #{endpoint}"
         uri = URI.parse(endpoint)
         https = Net::HTTP.new(uri.host, uri.port)
-        # https.use_ssl = true
+        https.use_ssl = true
         if method == "POST"
           request = Net::HTTP::Post.new(uri.path, headers)
           request.body = params.to_json

@@ -1,5 +1,10 @@
+require 'net/http'
+require 'uri'
+require 'json'
+require 'openssl'
 require_relative "config"
 require_relative "base"
+
 
 module Coindcx
   module Rest
