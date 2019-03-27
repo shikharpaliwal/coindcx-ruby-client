@@ -60,11 +60,6 @@ client.tickers
 # {"BTC_INR":{"id":632526,"percentChange":"-1.131","high24hr":"287957.0","low24hr":"280100.01","last":"282000.99","highestBid":"282001.00000000","lowestAsk":"284999.00000000","isFrozen":"0","quoteVolume":"2.89293","baseVolume":"822586.0723586"},"MDA_BTC":{"id":633389,"percentChange":"0.024","high24hr":"0.00026000","low24hr":"0.00023050","last":"0.00024516","highestBid":"0.00024515","lowestAsk":"0.00024537","isFrozen":"0","quoteVolume":"347.0","baseVolume":"0.08511527"},"XLM_BTC"....}
 ```
 
-<details>
-  <summary>Response</summary>
-  {"BTC_INR":{"id":632526,"percentChange":"-1.131","high24hr":"287957.0","low24hr":"280100.01","last":"282000.99","highestBid":"282001.00000000","lowestAsk":"284999.00000000","isFrozen":"0","quoteVolume":"2.89293","baseVolume":"822586.0723586"},"MDA_BTC":{"id":633389,"percentChange":"0.024","high24hr":"0.00026000","low24hr":"0.00023050","last":"0.00024516","highestBid":"0.00024515","lowestAsk":"0.00024537","isFrozen":"0","quoteVolume":"347.0","baseVolume":"0.08511527"},"XLM_BTC"....}
-</details>
-
 ### # Get Markets
 ```ruby
 client.markets
