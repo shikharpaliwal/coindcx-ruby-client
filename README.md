@@ -1,10 +1,13 @@
 # CoinDCX
 
+<a href="https://badge.fury.io/rb/coindcx"><img src="https://badge.fury.io/rb/coindcx.svg" alt="Gem Version" height="18"></a>
+
 A Ruby library to access coindcx exchange APIs.
 
 ### Note
 
 Currently this libarary supports REST only.
+All the endpoints taken from <a href="https://coindcx-official.github.io/rest-api" target="_blank">coindcx official doc</a>.
 
 
 ## Installation
@@ -38,35 +41,29 @@ Or install it yourself as:
 require 'coindcx'
 
 # Access public endpoints
-client = Coindcx::Rest::client.new
+client = Coindcx::Rest::Client.new
 
 # Access private endpoints
-client = Coindcx::Rest::client.new key, secret
+client = Coindcx::Rest::Client.new key, secret
 ```
 
 ---
 
 ## Public Endpoints
 
-### # Get Ticker
+### # Get Tickers
 ```ruby
-client.ticker
+client.tickers
 
 # RESPONSE:
 
-# [
-#   {
-#     "market": "REQBTC",
-#     "change_24_hour": "-1.621",
-#     "high": "0.00002799",
-#     "low": "0.00002626",
-#     "last_price": "0.00002663",
-#     "bid": "0.00002663",
-#     "ask": "0.00002669",
-#     "timestamp": 1524211224
-#   }
-# ]
+# {"BTC_INR":{"id":632526,"percentChange":"-1.131","high24hr":"287957.0","low24hr":"280100.01","last":"282000.99","highestBid":"282001.00000000","lowestAsk":"284999.00000000","isFrozen":"0","quoteVolume":"2.89293","baseVolume":"822586.0723586"},"MDA_BTC":{"id":633389,"percentChange":"0.024","high24hr":"0.00026000","low24hr":"0.00023050","last":"0.00024516","highestBid":"0.00024515","lowestAsk":"0.00024537","isFrozen":"0","quoteVolume":"347.0","baseVolume":"0.08511527"},"XLM_BTC"....}
 ```
+
+<details>
+  <summary>Response</summary>
+  {"BTC_INR":{"id":632526,"percentChange":"-1.131","high24hr":"287957.0","low24hr":"280100.01","last":"282000.99","highestBid":"282001.00000000","lowestAsk":"284999.00000000","isFrozen":"0","quoteVolume":"2.89293","baseVolume":"822586.0723586"},"MDA_BTC":{"id":633389,"percentChange":"0.024","high24hr":"0.00026000","low24hr":"0.00023050","last":"0.00024516","highestBid":"0.00024515","lowestAsk":"0.00024537","isFrozen":"0","quoteVolume":"347.0","baseVolume":"0.08511527"},"XLM_BTC"....}
+</details>
 
 ### # Get Markets
 ```ruby
@@ -254,11 +251,11 @@ client.place_multiple_orders(payload)
 # }
 ```
 
-### # POST status status
+### # POST order status
 ```ruby
 payload = {"id" => "ead19992-43fd-11e8-b027-bb815bcb14ed", "timestamp" => Time.new.to_i * 1000}
 
-client.status_status(payload)
+client.order_status(payload)
 
 # RESPONSE:
 
@@ -349,19 +346,19 @@ client.trade_history(payload)
 
 # RESPONSE:
 
-[ 
-  {
-    "id": 564389,
-    "order_id": "ee060ab6-40ed-11e8-b4b9-3f2ce29cd280",
-    "side": "buy",
-    "fee_amount": "0.00001129",
-    "ecode": "B",
-    "quantity": 67.9,
-    "price": 0.00008272,
-    "symbol": "LTCBTC",
-    "timestamp": 1533700109811
-  } 
-]
+# [ 
+#   {
+#     "id": 564389,
+#     "order_id": "ee060ab6-40ed-11e8-b4b9-3f2ce29cd280",
+#     "side": "buy",
+#     "fee_amount": "0.00001129",
+#     "ecode": "B",
+#     "quantity": 67.9,
+#     "price": 0.00008272,
+#     "symbol": "LTCBTC",
+#     "timestamp": 1533700109811
+#   } 
+# ]
 ```
 
 ### # POST active orders count
@@ -376,10 +373,10 @@ client.active_orders_count(payload)
 
 # RESPONSE:
 
-{ 
-  count: 1,
-  status: 200
-}
+# { 
+#   count: 1,
+#   status: 200
+# }
 ```
 
 ### # POST cancel all orders
