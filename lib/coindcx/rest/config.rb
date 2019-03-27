@@ -4,14 +4,6 @@ module Coindcx
       BASE_URL = 'https://api.coindcx.com/exchange'.freeze
 
       ENDPOINTS = {
-        "ticker" => {
-          "endpoint" => "/v1/ticker",
-          "parameters" => {
-            "type" => "query",
-          },
-          "method" => "GET",
-          "authentication" => false
-        },
         "markets" => {
           "endpoint" => "/v1/markets",
           "parameters" => {
@@ -88,7 +80,7 @@ module Coindcx
           "method" => "POST",
           "authentication" => true
         },
-        "status_status" => {
+        "order_status" => {
           "endpoint" => "/v1/orders/status",
           "parameters" => {
             "type" => "body"

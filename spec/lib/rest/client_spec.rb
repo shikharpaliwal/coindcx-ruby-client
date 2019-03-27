@@ -3,7 +3,7 @@ RSpec.describe Coindcx::Rest::Client do
     client = Coindcx::Rest::Client.new("key", "secret")
 
     # Public endpoints
-    expect(client).to respond_to(:ticker).with(1).argument
+    expect(client).to respond_to(:tickers).with(1).argument
 
     expect(client).to respond_to(:markets).with(1).argument
 
@@ -13,9 +13,6 @@ RSpec.describe Coindcx::Rest::Client do
 
     expect(client).to respond_to(:order_books).with(1).argument
 
-    expect(client).to respond_to(:tickers).with(1).argument
-
-
     # Private endpoints
     expect(client).to respond_to(:balances).with(1).argument
 
@@ -23,7 +20,7 @@ RSpec.describe Coindcx::Rest::Client do
 
     expect(client).to respond_to(:place_multiple_orders).with(1).argument
 
-    expect(client).to respond_to(:status_status).with(1).argument
+    expect(client).to respond_to(:order_status).with(1).argument
 
     expect(client).to respond_to(:multiple_order_status).with(1).argument
 
