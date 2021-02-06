@@ -25,7 +25,7 @@ module Coindcx
           signature = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), @secret, payload.to_json)
           headers = {
             'Content-Type' => 'application/json',
-            'X-AUTH-APIKEY' => @key, 
+            'X-AUTH-APIKEY' => @key,
             'X-AUTH-SIGNATURE' => signature
           }
           [headers, payload, endpoint(method, method_data, payload)]
@@ -39,7 +39,7 @@ module Coindcx
 
       def endpoint method, method_data, payload
         if method_data["parameters"]["type"] == "url"
-          endpoint = method_data["endpoint"]
+          endpoint = method_data["endpoint"].dup
           method_data["parameters"]["replace"].each do |key, value|
             endpoint.gsub!(key, payload[value])
           end
